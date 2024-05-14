@@ -1,13 +1,17 @@
 # Django Note App :
 
 
-This repository contains a **Personal Blog** Project developed using the Django Framework.
+This repository contains a **Notes App** Project developed using the Django Framework.
 
-Only the **Super User** can create, edit, and delete posts, authors and category in **admin Pannel** ( `http://127.0.0.1:8000/admin` ) of django project.
+Evry User can create, edit, and delete Notes after creating an account in the app.
 
-this is a example image of the main page of the blog : 
+this is a example image of the Login page of the Note App : 
 
-![Blog Main Page](img1.png)
+![Note App Login Page](img2.png)
+
+this is a example image of the main page of the Note App : 
+
+![Note App Main Page](img1.png)
 
 The User can search for a specific topic in the blog, and he can surf a specific category of topics.
 
@@ -17,13 +21,13 @@ The User can search for a specific topic in the blog, and he can surf a specific
 Download the project first using this cmd :
 
 ```
-git clone https://github.com/drisskhattabi6/Django-Blog-Project.git
+git clone https://github.com/drisskhattabi6/Django-Note-App.git
 ```
 
 Once the project is downloaded, navigate into the project directory:
 
 ```
-cd Django-Blog-Project
+cd Django-Note-App
 ```
 
 Before running the project, make sure you have Python and Django installed on your system. You can install Django using pip:
