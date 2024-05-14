@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %} {# load the 'humanize' template tag library for additional date formatting options #}
+
+{% comment %}
+{% load markdown_extras %}
+{{note.content | markdown | safe}}
+{% endcomment %}
+
+{% block title %} Notes Page {% endblock title %}
+
+
+{% block links %}
+    <!-- <link rel="stylesheet" href="{% static 'css/css-reset.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/normalize.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/myCss-fm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+{% endblock links %}
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<main class="flex-ctr-clm">
+    <div class="container flex-ctr-clm">
+        {% if user.is_authenticated %}
+        <button id="createBtn" class="btn">
+            <i class="fa-solid fa-plus"></i>
+            Add Note
+        </button>
+        
+        <div class="notes flex-ctr-wr">
+
+            {% for note in notes %}
+            <form class="note saved crud-form" action="" method="post" data-note-id="{{note.id}}">
+                {% csrf_token %}
+                <div class="header flex-sp-bet">
+                    <h2 title="create_at {{note.create_at|date:'Y-m-d H:i:s'}}">Note {{note.id}}</h2>
+                    <div class="flex-center">
+
+                        <button type="submit" name="edit" class="btn submit-btn"><i class="fa-solid fa-edit edit savedit" title="save/edit"></i></button>
+
+                        <button type="submit" name="delete" class="btn submit-btn"><i class="fa-solid fa-trash delete" title="delete"></i></button>
+
+                    </div>
+                </div>
+                <div class="text">
+                    <textarea placeholder="write your note...">{{note.content}}</textarea>
+                </div> 
+                <div class="date flex-start">   
+                    <i class="fa-solid fa-clock"></i>
+                    <p>{{note.create_at|date:"Y-m-d H:i:s"}}</p>
+                </div> 
+            </form>
+
+            {% comment %}
+                {% empty %}
+            <h1 style="color: #fff; font-size: 30px;">You don't have any Note, Create it now!!</h1>
+            {% endcomment %}
+            
+            {% endfor %}
+        </div>
+
+        {% else %}
+
+        <h1 style="font-size: 80px; color: red;"><i class="fa-solid fa-ban"></i></h1>
+        <h1>You Are Not Login !! </h1>
+
+        {% endif %}
+    </div>
+</main>
+
+{% include 'footer.html' %}
+
+{% endblock content %}
+
+
+{% block scripts %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" 
+          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+            crossorigin="anonymous"></script>
+  
+    <script type="text/javascript">
+    $(document).on('submit','.crud-form', function(e) {
+        e.preventDefault();
+        var $form = $(this);
+        var clickedButton = $(document.activeElement);
+        var buttonName = clickedButton.attr('name');
+        //alert("buttonName == " + buttonName)
+        var noteId = $(this).data('note-id');
+        //alert("noteId == " + noteId)
+
+        if (buttonName === 'save') {
+            // Handle the "Save" button click
+            $.ajax({
+                url: $form.attr('action'),
+                type: $form.attr('method'),
+                data: {
+                    noteId: noteId,
+                    noteContent:$(this).find('textarea').val(),
+                    delete:"false",
+                    save:"true",
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(response) {
+                    //alert('Saved');
+                    location.reload();
+                }
+            });
+        } else if (buttonName === 'delete') {
+            // Handle the "Delete" button click
+            
+            $.ajax({
+                url: $form.attr('action'),
+                type: $form.attr('method'),
+                data: {
+                    //noteContent:$(this).find('textarea').val(),
+                    noteId: noteId,
+                    delete:"true",
+                    save:"false",
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                },
+                /*success: function(response) {
+                    alert('Deleted');
+                }*/
+            });
+        }
+
+    }); 
+    </script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock scripts %}

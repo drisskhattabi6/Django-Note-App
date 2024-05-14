@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Registation Page
+{% endblock title %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/myCss-fm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock links %}
+
+
+{% block content %}
+{% include 'header.html' %}
+
+<main class="flex-ctr-clm">
+    <div class="container">
+        <form action="" method="post" class="flex-str-clm">
+
+            {% csrf_token %}
+        
+            <h1>Registration Page</h1>
+                
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name">
+    
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name">
+    
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+    
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+            
+            <label for="password1">Password</label>
+            <input type="password" name="password1" id="password1">
+    
+            <label for="password2">Repeat Password</label>
+            <input type="password" name="password2" id="password2">
+    
+            <!-- <label for="{{ form.username.id_for_label }}">Username:</label>
+            {{ form.username }}
+            <br>
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            {{ form.email }}
+            <br>
+            <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+            {{ form.first_name }}
+            <br>
+            <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+            {{ form.last_name }}
+            <br>
+            <label for="{{ form.password1.id_for_label }}">Password:</label>
+            {{ form.password1 }}
+            <br>
+            <label for="{{ form.password2.id_for_label }}">Password confirmation:</label>
+            {{ form.password2 }} -->
+    
+            <!-- {{form.as_p}} -->
+        
+            <input type="submit" value="register">
+    
+            <!-- {% if error_message %}
+            <p style="color: red;">{{error_message}}</p>
+            {% endif %} -->
+    
+            {% if form.errors %}
+            <div class="errors">
+                <p>Errors:</p>
+                <ul>
+                    {% for field in form %}
+                        {% if field.errors %}
+                            <li style="color:red"><span style="text-decoration: underline;">{{ field.label }}:</span> {{ field.errors|join:", " }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+    
+            <p>You already have an account! <a href="{% url 'login' %}">Login</a></p>
+    
+        </form>
+    </div>
+</main>
+{% endblock content %}

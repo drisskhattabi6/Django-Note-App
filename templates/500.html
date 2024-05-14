@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    500 Internal Server Error
+{% endblock title %}
+
+
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/css-reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/myCss-fm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock links %}
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<main class="container flex-str-clm">
+    
+    <!-- <h1 style="font-size: 50px;">500 - Internal Server Error!</h1> -->
+
+    <img style="margin: 20px;width: 500px;" src="{% static 'img/500.png' %}" alt="500 img">
+
+    <!-- <h2>I cannot find the file you requested!</h2> -->
+
+    <h1><a href="{% url 'index' %}">Back Home</a></h1>
+    
+</main>
+
+{% endblock content %}
+
+
+{% block scripts %}
+    
+{% endblock scripts %}

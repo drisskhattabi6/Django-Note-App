@@ -1,0 +1,22 @@
+<header>
+    <div class="container flex-sp-bet">
+        <h1 class="logo">Note App</h1>
+        <nav class="nav">
+            {% if user.is_authenticated %}
+            <ul>
+                <li class="hi-user"><i class="fa-solid fa-user"></i> <u>{{user}}</u></li>
+                <li><a href="{% url 'homepage' %}"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="{% url 'about' %}"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><button class="btn"><a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></button></li>
+            </ul>
+            {% else %}
+            <ul>
+                <li><a href="{% url 'homepage' %}"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="{% url 'about' %}"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><button class="btn"><a href="{% url 'login' %}"><i class="fa-solid fa-right-from-bracket"></i> Login</a></button></li>
+                <li><button class="btn"><a href="{% url 'register' %}"> <i class="fa-solid fa-user-plus"></i> Register</a></button></li>
+            </ul>
+            {% endif %}
+        </nav>
+    </div>
+</header>

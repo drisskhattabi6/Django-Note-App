@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    404 Page Not Found
+{% endblock title %}
+
+
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/css-reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/myCss-fm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock links %}
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<main class="container flex-str-clm">
+    
+    <!-- <h1 style="font-size: 50px;">404 - Page Not Found!</h1> -->
+
+    <img width="500px" style="margin: 20px;" src="{% static 'img/404.png' %}" alt="404 img">
+
+    <!-- <h2>I cannot find the file you requested!</h2> -->
+
+    <h1><a href="{% url 'index' %}">Back Home</a></h1>
+    
+</main>
+
+{% endblock content %}
+
+
+{% block scripts %}
+    
+{% endblock scripts %}

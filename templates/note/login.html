@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Login Page
+{% endblock title %}
+
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/myCss-fm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock links %}
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<main class="flex-ctr-clm">
+    <div class="container">
+        <form action="" method="post" class="flex-str-clm">
+
+            {% csrf_token %}
+        
+            <h1>Login Page</h1>
+                
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+            
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        
+            <input type="submit" value="login">
+    
+            {% if error_message %}
+            <p style="color: red;">{{error_message}}</p>
+            {% endif %}
+    
+            <p>Don't have an account! <a href="{% url 'register' %}">Register</a></p>
+            <p><a href="{% url 'password_reset' %}">Forgotten your password?</a></p>
+    
+        </form>
+    </div>
+</main>
+
+{% endblock content %}

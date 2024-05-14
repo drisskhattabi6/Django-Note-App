@@ -1,0 +1,98 @@
+/* -------------------------- */
+
+p {
+    padding: 15px 0 10px;
+}
+
+header {
+    height: 80px;
+    width: 100vw;
+    background-color: #232323;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav ul li a, .nav ul li button a {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    transition: all .3s ease;
+}
+.nav ul li button {
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    background-color: #b4b4b4;
+    color: #232323;
+    
+}
+
+.nav ul li a:hover {
+    color: #eaf56d;
+}
+
+label {
+    padding: 5px;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.hi-user {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.logo {
+    font-size: 35px;
+}
+
+/* ############## */
+
+footer {
+    background-color: #232323;
+    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
+    /* position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -5; */
+    font-family: 'Poppins', sans-serif;
+}
+footer .medias {
+    padding: 10px 30px;
+}
+
+footer .medias .media {
+    padding: 5px 15px;
+}
+
+footer .medias .media a i {
+    font-size: 25px;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    color: var(--color1);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    padding-bottom: 20px;
+    padding: 10px 30px;
+}
+.copyright span {
+    color: red;
+}
+
+/* ############# */

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} View Task Page {% endblock title %}
+
+
+{% block links %}
+    <!-- <link rel="stylesheet" href="{% static 'css/css-reset.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/normalize.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/myCss-fm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock links %}
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<main class="flex-ctr-clm">
+    <section class="about">
+        <h2>About Note App</h2>
+        <p>This Note App is a personel project, build in django.</p>
+        <p>Project link <a href="https://github.com/drisskhattabi6/Django-Note-App" target="_blank" rel="Note App project">from Here</a>.</p>
+    </section>
+    <br>
+    <hr width="75%">
+    <br>
+    <section class="about">
+        <h2>About Developer</h2>
+        <p>Idriss Khattabi - I'm an AI and Data Sciences Master's student | Python Django Developer</p>
+    </section>
+    <br>
+    <hr width="75%">
+    <br>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or inquiries, please don't hesitate to reach out:</p>
+        <p>Email: <a href="mailto:drisskhattabi6@gmail.com">drisskhattabi6@gmail.com</a></p>
+    </section>
+
+    {% if not user.is_authenticated %}
+    <section>
+        <h1 style="font-size: 80px; color: red;"><i class="fa-solid fa-ban"></i></h1>
+        <h1>You Are Not Login !! </h1>
+    </section>
+    {% endif %}
+    
+</main>
+
+{% include 'footer.html' %}
+
+{% endblock content %}
+
+
+{% block scripts %}
+    
+{% endblock scripts %}
+
+
