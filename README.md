@@ -34,9 +34,10 @@ Before running the project, make sure you have Python and Django installed on yo
 pip install -r requirements.txt
 ```
 
-Next, you'll need to apply migrations to set up the database schema (Optionel):
+Next, you'll need to apply migrations to set up the database schema:
 
 ```
+python manage.py makemigrations
 python manage.py migrate
 ```
 
@@ -76,6 +77,9 @@ EMAIL_HOST_PASSWORD = 'Your Email PASSWORD Here'
 - The User can create, modify amd delete any note.
 
 - In this Application, I'm using sqlite as DataBase.
+
+- reset password pages are not good styling.
+(you can style theme with create css file or modify the css file and add a specific code for these pages).
   
 ------
 
