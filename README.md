@@ -3,7 +3,7 @@
 
 This repository contains a **Notes App** Project developed using the Django Framework.
 
-Evry User can create, edit, and delete Notes after creating an account in the app.
+Every User can create, edit, and delete Notes after creating an account in the app.
 
 this is a example image of the Login page of the Note App : 
 
@@ -13,7 +13,7 @@ this is a example image of the main page of the Note App :
 
 ![Note App Main Page](img1.png)
 
-The User can search for a specific topic in the blog, and he can surf a specific category of topics.
+
 
 
 ## Run Project : 
@@ -62,13 +62,22 @@ python manage.py runserver
 
 The development server will start, and you can access the Blog Project by navigating to `http://127.0.0.1:8000/` in your web browser.
 
+## Importent Configuration : 
+
+Add an email with password in **setting.py** file, this email will send a reset password link to the users.
+
+```
+EMAIL_HOST_USER = 'Write Your Email Here'
+EMAIL_HOST_PASSWORD = 'Your Email PASSWORD Here'
+```
+
 ## More Informations :
 
-- By default, you will find that there is data in the data base already. you can edit, create ou delete it using admin pannel after creating super user.
+- The User can Register, Login, reset password by sending a reset link to the user email.
 
 - In this Application, I'm using sqlite as DataBase.
 
-- When I want to add a new post/topic, I'm using MarkDown syntax.
+- 
   
 ------
 
